@@ -1,18 +1,23 @@
 % 题目相关的配置
 \newcounter{itemdati}[section]          % 大题的计数器: 一、二、三、……
-\newcounter{itemzhongti}[itemdati]      % 大题的计数器：（一）、（二）、（三）、……
+\newcounter{itemzhongti}[itemdati]      % 大题的计数器：（一）（二）（三）……
 \newcounter{itemxiaoti}[itemzhongti]    % 小题的计数器： 1. 2. 3. ……
+\newcounter{itemxiaoxiaoti}[itemxiaoti] % 小小题的计数器： （1） （2） （3） ……
 \newcommand{\dati}[1]{ % 大题的标题
   \stepcounter{itemdati}
-  \hspace{-0.8cm}\textbf{\chinese{itemdati}、 #1}
+  \hspace{-2.8em}\textbf{\chinese{itemdati}、 #1}
 }
 \newcommand{\zhongti}[1]{ % 中题的标题
   \stepcounter{itemzhongti}
-  \hspace{-0.8cm}（\chinese{itemzhongti}）、 #1
+  \hspace{-2.8em}（\chinese{itemzhongti}） #1
 }
 \newcommand{\xiaoti}[1]{ % 小题的标题
   \stepcounter{itemxiaoti}
-  \setlength{\hangindent}{3.5em}{\arabic{itemxiaoti}. #1}
+  \setlength{\hangindent}{3.2em}{\arabic{itemxiaoti}. #1}
+}
+\newcommand{\xiaoxiaoti}[1]{ % 小小题的标题
+  \stepcounter{itemxiaoxiaoti}
+  \setlength{\hangindent}{5.4em}{\hspace{0.3cm}（\arabic{itemxiaoxiaoti}）#1}
 }
 
 \newcommand{\xhx}[1][2cm] { \underline{ \hspace{#1} } } % 下划线
