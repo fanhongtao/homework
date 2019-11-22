@@ -1,8 +1,18 @@
+% 绘制带圈的数字
+\usepackage{tikz}
+\usepackage{etoolbox}
+\newcommand{\circled}[2][]{\tikz[baseline=(char.base)]
+    {\node[shape = circle, draw, inner sep = 1pt]
+    (char) {\phantom{\ifblank{#1}{#2}{#1}}};%
+    \node at (char.center) {\makebox[0pt][c]{#2}};}}
+\robustify{\circled}
+
 % 题目相关的配置
 \newcounter{itemdati}[section]          % 大题的计数器: 一、二、三、……
 \newcounter{itemzhongti}[itemdati]      % 大题的计数器：（一）（二）（三）……
 \newcounter{itemxiaoti}[itemzhongti]    % 小题的计数器： 1. 2. 3. ……
 \newcounter{itemxiaoxiaoti}[itemxiaoti] % 小小题的计数器： （1） （2） （3） ……
+\newcounter{itemweiti}[itemxiaoxiaoti]  % 微题的计数器： ①  ②  ③ 	 ……
 \newcommand{\dati}[1]{ % 大题的标题
   \stepcounter{itemdati}
   \hspace{-2.8em}\textbf{\chinese{itemdati}、 #1}
@@ -13,17 +23,30 @@
 }
 \newcommand{\xiaoti}[1]{ % 小题的标题
   \stepcounter{itemxiaoti}
-  \setlength{\hangindent}{3.2em}{\arabic{itemxiaoti}. #1}
+  \hangafter 1\setlength{\hangindent}{3.2em}{\arabic{itemxiaoti}. #1}
 }
 \newcommand{\xiaoxiaoti}[1]{ % 小小题的标题
   \stepcounter{itemxiaoxiaoti}
-  \setlength{\hangindent}{5.4em}{\hspace{1em}（\arabic{itemxiaoxiaoti}）#1}
+  \hangafter 1\setlength{\hangindent}{5.4em}{\hspace{1em}（\arabic{itemxiaoxiaoti}）#1}
+}
+\newcommand{\weiti}[1]{ % 微题的标题
+  \stepcounter{itemweiti}
+  \hangafter 1\setlength{\hangindent}{5.4em}{\hspace{3em}\circled{\arabic{itemweiti}}#1}
 }
 
 \newcommand{\xhx}[1][6em] {\underline{\hspace{#1}}} % 下划线
 
-\newcommand{\kh}[1][2em] {（\hspace{#1}）} % 括号
+\newcommand{\kh}[1][2em] {\mbox{（\hspace{#1}）}} % 括号
 
 \newcommand{\kbai}[1][1em] {\hspace{#1}} % 空白
 
+% 选择题题目
+\newcommand{\xuanzeti}[1]{#1 \hfill \kh}
 
+%---- 选择题选项 ----
+% 四个选项排成一行
+\newcommand{\fourch}[4]{\begin{tabular}{*{4}{@{}p{3.5cm}}}(A)~#1 & (B)~#2 & (C)~#3 & (D)~#4\end{tabular}}
+% 每两个选项排成一行，共两行
+\newcommand{\twoch}[4]{\begin{tabular}{*{2}{@{}p{7cm}}}(A)~#1 & (B)~#2\end{tabular}\\\begin{tabular}{*{2}{@{}p{7cm}}}(C)~#3 &(D)~#4\end{tabular}}
+% 每个选项单独占一行，共四行
+\newcommand{\onech}[4]{(A)~#1 \\ (B)~#2  \\ (C)~#3  \\ (D)~#4}  % 一行
