@@ -43,6 +43,14 @@
 % 选择题题目
 \newcommand{\xuanzeti}[1]{#1 \hfill \kh}
 
+%---- 将若干项目放置在一行 -----
+% 这一组命令的 第1个参数（可选），用于控制每个项目所占的宽度
+\newcommand{\twoInLine}  [3][10em]{\begin{tabular}[t]{*{2}{@{}p{#1}}} #2 & #3\end{tabular}}
+\newcommand{\threeInLine}[4][10em]{\begin{tabular}[t]{*{3}{@{}p{#1}}} #2 & #3 & #4\end{tabular}}
+\newcommand{\fourInLine} [5][10em]{\begin{tabular}[t]{*{4}{@{}p{#1}}} #2 & #3 & #4 & #5\end{tabular}}
+\newcommand{\fiveInLine} [6][10em]{\begin{tabular}[t]{*{5}{@{}p{#1}}} #2 & #3 & #4 & #5 & #6\end{tabular}}
+\newcommand{\sixInLine}  [7][10em]{\begin{tabular}[t]{*{6}{@{}p{#1}}} #2 & #3 & #4 & #5 & #6 & #7\end{tabular}}
+
 %---- 选择题选项 ----
 % 四个选项排成一行
 \newcommand{\fourch}[4]{\begin{tabular}{*{4}{@{}p{3.5cm}}}(A)~#1 & (B)~#2 & (C)~#3 & (D)~#4\end{tabular}}

@@ -36,9 +36,7 @@
 \end{tabular}}
 
 % 四个一行
-\newcommand{\sigeyihang}[4]{\begin{tabular}[t]{*{4}{@{}p{10em}}}
-  #1 & #2 & #3 & #4
-\end{tabular}}
+\newcommand{\sigeyihang}[4]{\fourInLine{#1}{#2}{#3}{#4}}  % 为了减少代码修改，保留这个命令的定义。
 
 \begin{document}
 
@@ -144,18 +142,11 @@ chí jiǔ & lèi shuǐ & píng xī & miàn duì & kěn dìng \\
   \end{tabular}
 }
 
-%  
-%  装\CJKunderdot{载} （zǎi \kbai zài） \kbai[4em] 海\CJKunderdot{参} （cān \kbai shēn） \kbai[3em] 胳\CJKunderdot{臂} （bì \kbai bei） \\
-%  \CJKunderdot{凌} （líng \kbai lín）乱 \kbai[3.5em] 根\CJKunderdot{茎} （jīn \kbai jīng） \kbai[3.8em] 玫\CJKunderdot{瑰} （guī \kbai guì）
-
-
 \xiaoxiaoti{
   \hspace{-1em}\begin{tabular}[t]{*{3}{p{12em}}}
     蟋\CJKunderdot{蟀}（suài \kbai shuài） & \CJKunderdot{材} （cái \kbai chái）料 & \CJKunderdot{搭} （dā \kbai tǎ）船 \\
     \CJKunderdot{沾}（zhān \kbai zhàn）水 & \CJKunderdot{钓} （diào \kbai gōu）鱼 & \CJKunderdot{增} （zēn \kbai zēng）加
   \end{tabular}
-%  蟋\CJKunderdot{蟀}（suài \kbai shuài） \kbai[2.4em] \CJKunderdot{材} （cái \kbai chái）料 \kbai[3.5em] \CJKunderdot{搭} （dā \kbai tǎ）船 \\
-%  \CJKunderdot{沾}（zhān \kbai[0.1em] zhàn）水 \kbai[3em] \CJKunderdot{钓} （diào \kbai gōu）鱼 \kbai[2.8em] \CJKunderdot{增} （zēn \kbai zēng）加
 }
 
 \xiaoti{给加点字选择正确的读音或字，打上“$\surd$”。}
@@ -253,13 +244,6 @@ chí jiǔ & lèi shuǐ & píng xī & miàn duì & kěn dìng \\
     {\sigeyihang{层林尽染}{春华秋实}{五谷丰登}{一叶知秋}}
     {\sigeyihang{窗明几净}{百衣百顺}{耳闻目睹}{一本正经}}
     {\sigeyihang{波澜壮阔}{寸步难行}{细嚼慢咽}{秋风习习}}
-    %{\begin{tabular*}{35em}[t]{*{4}{@{\extracolsep{\fill}}l}} a&b&c&d \end{tabular*}}
-    %{\begin{tabular}[t]{*{4}{p{10em}}} a&b&c&d \end{tabular}}
-    %{\begin{tabular}[t]{*{4}{@{\hspace{1em}}l}} a&b&c&d \end{tabular}}
-    % {\begin{tabular}[t]{*{4}{p{10em}}l} a&b&c&d& \end{tabular}}
-    %{\begin{tabular}[t]{*{4}{@{}p{10em}}} a&b&c&d \end{tabular}}
-    %{\begin{tabular}[t]{*{4}{l}} a&b&c&d \end{tabular}}
-    %{\begin{tabbing}a\hspace{3em}  \= b\hspace{3em} \= c\hspace{3em} \= d\end{tabbing}}
 }
 
 \dati{查字典填空。}

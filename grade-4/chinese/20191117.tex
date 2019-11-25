@@ -54,19 +54,23 @@
 
 \zhongti{把下列词语补充完整。}
 
-眉\kh 目\kh  \kbai  \kh\kh 玉立  \kbai  明\kh\kh 齿 \kbai  文质\kh\kh
+% 直接使用 \fourInLine 会有告警信息，所以这里重新定义一个命令，
+% 将第4个项放置在表格外，这样减少了一行的总长度，消除告警。
+\newcommand{\fline}[4] {\threeInLine[11em]{#1}{#2}{#3}#4}
 
-相貌\kh\kh  \kbai  威风\kh\kh  \kbai  \kh 大\kh 圆 \kbai  \kh\kh 精悍
+\fline{眉\kh 目\kh}{\kh\kh 玉立}{明\kh\kh 齿}{文质\kh\kh}
 
-容\kh 焕\kh  \kbai  \kh 发童\kh  \kbai  \kh 眉\kh 目 \kbai  老态\kh\kh
+\fline{相貌\kh\kh}{威风\kh\kh}{\kh 大\kh 圆}{\kh\kh 精悍}
+
+\fline{容\kh 焕\kh}{\kh 发童\kh}{\kh 眉\kh 目}{老态\kh\kh}
 
 \zhongti{照样子，在括号里填上合适的词语。}
 
-\xiaoti{（优美）的风景  \kbai  \kh[1cm]的豆荚   \kbai  \kh[1cm]的牙齿}
+\xiaoti{ \threeInLine{（优美）的风景}{\kh[1cm]的豆荚}{\kh[1cm]的牙齿}}
 
-\xiaoti{（剧烈）地抖动  \kbai  \kh[1cm]地移动   \kbai  \kh[1cm]地避开}
+\xiaoti{ \threeInLine{（剧烈）地抖动}{\kh[1cm]地移动}{\kh[1cm]地避开}}
 
-\xiaoti{（抄写）文章　   \kbai  \kh[1cm]生活　  \kbai   \kh[1cm]奇迹}
+\xiaoti{ \threeInLine{（抄写）文章}{\kh[1cm]生活}{\kh[1cm]奇迹}}
 
 \zhongti{把下列词语中不是同一类的用 “\xhx[1cm]” 画出。}
 
@@ -118,7 +122,7 @@
 
 \zhongti{选出括号里用得恰当的词。}
 
-\xiaoti{得知普罗米修斯从天上取走火种的消息，众神的领袖宙斯气急败坏，决定给普罗米修斯以最\kbai[2cm]（严肃 \kbai 严厉）的惩罚，吩咐火神立即执行。}
+\xiaoti{得知普罗米修斯从天上取走火种的消息，众神的领袖宙斯气急败坏，决定给普罗米修斯以最\\（严肃 \kbai 严厉）的惩罚，吩咐火神立即执行。}
 
 \xiaoti{它嘴角嫩黄，头上长着绒毛，（分明 \kbai 证明）是刚出生不久，从巢里掉下来的。} 
 
@@ -160,9 +164,9 @@
 
 \zhongti{补充词语并按要求答题。}
 
-人声 \kh 沸 \kbai 锣鼓 \kh 天  \kbai  \underline{三头六 \kh}   \kbai 震耳 \kh 聋
+\fourInLine{人声 \kh 沸}{锣鼓 \kh 天}{\underline{三头六 \kh}}{震耳 \kh 聋}
 
- \kh 声细语　 \kbai \CJKunderwave{秉公 \kh 法}  \kbai  鸦 \kh 无声  \kbai \kh 无声息
+\fourInLine{\kh 声细语}{\CJKunderwave{秉公 \kh 法}}{鸦 \kh 无声}{\kh 无声息}
 
 \xiaoti{根据意思选词语。}
 
