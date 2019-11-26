@@ -51,6 +51,11 @@
 \newcommand{\fiveInLine} [6][6.8em]{\begin{tabular}[t]{*{5}{@{}p{#1}}} #2 & #3 & #4 & #5 & #6\end{tabular}}
 \newcommand{\sixInLine}  [7][5.8em]{\begin{tabular}[t]{*{6}{@{}p{#1}}} #2 & #3 & #4 & #5 & #6 & #7\end{tabular}}
 
+%--- 将若干项目放置为一列（前加表示分组的大括号） ---
+\newcommand{\twoInRow}  [2] {\begin{math} \begin{cases} \text{#1}\\ \text{#2} \end{cases}\end{math}}
+\newcommand{\threeInRow}[3] {\begin{math} \begin{cases} \text{#1}\\ \text{#2}\\ \text{#3} \end{cases}\end{math}}
+\newcommand{\fourInRow} [4] {\begin{math} \begin{cases} \text{#1}\\ \text{#2}\\ \text{#3} \\ \text{#4} \end{cases}\end{math}}
+
 %---- 选择题选项 ----
 % 四个选项排成一行
 \newcommand{\fourch}[4]{\begin{tabular}{*{4}{@{}p{3.5cm}}}(A)~#1 & (B)~#2 & (C)~#3 & (D)~#4\end{tabular}}
