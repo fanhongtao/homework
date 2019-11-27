@@ -52,9 +52,9 @@
 \newcommand{\sixInLine}  [7][5.8em]{\begin{tabular}[t]{*{6}{@{}p{#1}}} #2 & #3 & #4 & #5 & #6 & #7\end{tabular}}
 
 %--- 将若干项目放置为一列（前加表示分组的大括号） ---
-\newcommand{\twoInRow}  [2] {\begin{math} \begin{cases} \text{#1}\\ \text{#2} \end{cases}\end{math}}
-\newcommand{\threeInRow}[3] {\begin{math} \begin{cases} \text{#1}\\ \text{#2}\\ \text{#3} \end{cases}\end{math}}
-\newcommand{\fourInRow} [4] {\begin{math} \begin{cases} \text{#1}\\ \text{#2}\\ \text{#3} \\ \text{#4} \end{cases}\end{math}}
+\newcommand{\twoInRow}  [2] {$\Bigg\{ \begin{tabular}{@{}l@{}} \text{#1}\\ \text{#2} \end{tabular} $ }
+\newcommand{\threeInRow}[3] {$\Bigg\{ \begin{tabular}{@{}l@{}} \text{#1}\\ \text{#2}\\ \text{#3} \end{tabular} $ }
+\newcommand{\fourInRow} [4] {$\Bigg\{ \begin{tabular}{@{}l@{}} \text{#1}\\ \text{#2}\\ \text{#3}\\ \text{#4} \end{tabular} $ }
 
 %---- 选择题选项 ----
 % 四个选项排成一行
