@@ -43,6 +43,11 @@
 % 选择题题目
 \newcommand{\xuanzeti}[1]{#1 \hfill \kh}
 
+% 带括号：指题目后面，有一个向右对齐的括号。形如：
+%    题目标题  。。。。 (   )
+% 常用于 判断对错 或 填写选择项
+\newcommand{\daikuohao}[1]{#1 \hfill \kh}
+
 %---- 将若干项目放置在一行 -----
 % 这一组命令的 第1个参数（可选），用于控制每个项目所占的宽度
 \newcommand{\twoInLine}  [3][10em] {\begin{tabular}[t]{*{2}{@{}p{#1}}} #2 & #3\end{tabular}}
