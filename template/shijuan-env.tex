@@ -1,0 +1,89 @@
+% 绘制带圈的数字
+\usepackage{tikz}
+\usepackage{etoolbox}
+\newcommand{\circled}[2][]{\tikz[baseline=(char.base)]
+    {\node[shape = circle, draw, inner sep = 1pt]
+    (char) {\phantom{\ifblank{#1}{#2}{#1}}};%
+    \node at (char.center) {\makebox[0pt][c]{#2}};}}
+\robustify{\circled}
+
+% 题目相关的配置
+\newcounter{cntdati}[section]           % 大题的计数器
+\newcounter{cntzhongti}[cntdati]        % 中题的计数器
+\newcounter{cntxiaoti}[cntzhongti]      % 小题的计数器
+\newcounter{cntxiaoxiaoti}[cntxiaoti]   % 小小题的计数器
+\newcounter{cntweiti}[cntxiaoxiaoti]    % 微题的计数器
+                                        % 如果有需要，还可以再设 “小微题”、“微微题”
+
+\newenvironment{envdati}{ % “大题” 环境
+  \newcommand {\dati}[1] { % 大题的标题
+    \stepcounter{cntdati}
+    \hspace{-2.8em}\textbf{\chinese{cntdati}、 ##1} % 一、二、三、……
+  }
+}{%
+}
+
+\newenvironment{envzhongti}{ % “中题” 环境
+  \newcommand {\zhongti}[1] { % 中题的标题
+    \stepcounter{cntzhongti}
+    \hspace{-2.8em}（\chinese{cntzhongti}） ##1 %（一）（二）（三）……
+  }
+}{%
+}
+
+\newenvironment{envxiaoti}{ % “小题” 环境
+  \newcommand {\xiaoti}[1] { % 小题的标题
+    \stepcounter{cntxiaoti}
+    \hangafter 1\setlength{\hangindent}{3.2em}{\arabic{cntxiaoti}. ##1} % 1. 2. 3. ……
+  }
+}{%
+}
+
+\newenvironment{envxiaoxiaoti}{ % “小小题” 环境
+  \newcommand {\xiaoxiaoti}[1] { % 小小题的标题
+    \stepcounter{cntxiaoxiaoti}
+    \hangafter 1\setlength{\hangindent}{5.4em}{\hspace{1em}（\arabic{cntxiaoxiaoti}）##1} % （1） （2） （3） ……
+  }
+}{%
+}
+
+\newenvironment{envweiti}{ % “微题” 环境
+  \newcommand {\weiti}[1] { % 微题的标题
+    \stepcounter{cntweiti}
+    \hangafter 1\setlength{\hangindent}{5.4em}{\hspace{3em}\circled{\arabic{cntweiti}}##1} %  ①  ②  ③ 	 ……
+  }
+}{%
+}
+
+
+\newcommand{\xhx}[1][6em] {\underline{\hspace{#1}} } % 下划线
+
+\newcommand{\kh}[1][2em] {\mbox{（\hspace{#1}）}} % 括号
+
+\newcommand{\kbai}[1][1em] {\hspace{#1}} % 空白
+
+% 带括号：指题目后面，有一个向右对齐的括号。形如：
+%    题目标题  。。。。 (   )
+% 常用于 判断对错 或 填写选择项
+\newcommand{\daikuohao}[1]{#1 \hfill \kh}
+
+%---- 将若干项目放置在一行 -----
+% 这一组命令的 第1个参数（可选），用于控制每个项目所占的宽度
+\newcommand{\twoInLine}  [3][10em] {\begin{tabular}[t]{*{2}{@{}p{#1}}} #2 & #3\end{tabular}}
+\newcommand{\threeInLine}[4][10em] {\begin{tabular}[t]{*{3}{@{}p{#1}}} #2 & #3 & #4\end{tabular}}
+\newcommand{\fourInLine} [5][10em] {\begin{tabular}[t]{*{4}{@{}p{#1}}} #2 & #3 & #4 & #5\end{tabular}}
+\newcommand{\fiveInLine} [6][6.8em]{\begin{tabular}[t]{*{5}{@{}p{#1}}} #2 & #3 & #4 & #5 & #6\end{tabular}}
+\newcommand{\sixInLine}  [7][5.8em]{\begin{tabular}[t]{*{6}{@{}p{#1}}} #2 & #3 & #4 & #5 & #6 & #7\end{tabular}}
+
+%--- 将若干项目放置为一列（前加表示分组的大括号） ---
+\newcommand{\twoInRow}  [2] {$\Bigg\{ \begin{tabular}{@{}l@{}} \text{#1}\\ \text{#2} \end{tabular} $ }
+\newcommand{\threeInRow}[3] {$\Bigg\{ \begin{tabular}{@{}l@{}} \text{#1}\\ \text{#2}\\ \text{#3} \end{tabular} $ }
+\newcommand{\fourInRow} [4] {$\Bigg\{ \begin{tabular}{@{}l@{}} \text{#1}\\ \text{#2}\\ \text{#3}\\ \text{#4} \end{tabular} $ }
+
+%---- 选择题选项 ----
+% 四个选项排成一行
+\newcommand{\fourch}[4]{\begin{tabular}{*{4}{@{}p{3.5cm}}}(A)~#1 & (B)~#2 & (C)~#3 & (D)~#4\end{tabular}}
+% 每两个选项排成一行，共两行
+\newcommand{\twoch}[4]{\begin{tabular}{*{2}{@{}p{7cm}}}(A)~#1 & (B)~#2\end{tabular}\\\begin{tabular}{*{2}{@{}p{7cm}}}(C)~#3 &(D)~#4\end{tabular}}
+% 每个选项单独占一行，共四行
+\newcommand{\onech}[4]{(A)~#1 \\ (B)~#2  \\ (C)~#3  \\ (D)~#4}  % 一行
