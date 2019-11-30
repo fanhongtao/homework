@@ -8,30 +8,30 @@
 \robustify{\circled}
 
 % 题目相关的配置
-\newcounter{itemdati}[section]          % 大题的计数器: 一、二、三、……
-\newcounter{itemzhongti}[itemdati]      % 大题的计数器：（一）（二）（三）……
-\newcounter{itemxiaoti}[itemzhongti]    % 小题的计数器： 1. 2. 3. ……
-\newcounter{itemxiaoxiaoti}[itemxiaoti] % 小小题的计数器： （1） （2） （3） ……
-\newcounter{itemweiti}[itemxiaoxiaoti]  % 微题的计数器： ①  ②  ③ 	 ……
+\newcounter{cntdati}[section]           % 大题的计数器
+\newcounter{cntzhongti}[cntdati]        % 中题的计数器
+\newcounter{cntxiaoti}[cntzhongti]      % 小题的计数器
+\newcounter{cntxiaoxiaoti}[cntxiaoti]   % 小小题的计数器
+\newcounter{cntweiti}[cntxiaoxiaoti]    % 微题的计数器
 \newcommand{\dati}[1]{ % 大题的标题
-  \stepcounter{itemdati}
-  \hspace{-2.8em}\textbf{\chinese{itemdati}、 #1}
+  \stepcounter{cntdati}
+  \hspace{-2.8em}\textbf{\chinese{cntdati}、 #1} %  一、二、三、……
 }
 \newcommand{\zhongti}[1]{ % 中题的标题
-  \stepcounter{itemzhongti}
-  \hspace{-2.8em}（\chinese{itemzhongti}） #1
+  \stepcounter{cntzhongti}
+  \hspace{-2.8em}（\chinese{cntzhongti}） #1    % （一）（二）（三）……
 }
 \newcommand{\xiaoti}[1]{ % 小题的标题
-  \stepcounter{itemxiaoti}
-  \hangafter 1\setlength{\hangindent}{3.2em}{\arabic{itemxiaoti}. #1}
+  \stepcounter{cntxiaoti}
+  \hangafter 1\setlength{\hangindent}{3.2em}{\arabic{cntxiaoti}. #1} % 1. 2. 3. ……
 }
 \newcommand{\xiaoxiaoti}[1]{ % 小小题的标题
-  \stepcounter{itemxiaoxiaoti}
-  \hangafter 1\setlength{\hangindent}{5.4em}{\hspace{1em}（\arabic{itemxiaoxiaoti}）#1}
+  \stepcounter{cntxiaoxiaoti}
+  \hangafter 1\setlength{\hangindent}{5.4em}{\hspace{1em}（\arabic{cntxiaoxiaoti}）#1} % （1） （2） （3） ……
 }
 \newcommand{\weiti}[1]{ % 微题的标题
-  \stepcounter{itemweiti}
-  \hangafter 1\setlength{\hangindent}{5.4em}{\hspace{3em}\circled{\arabic{itemweiti}}#1}
+  \stepcounter{cntweiti}
+  \hangafter 1\setlength{\hangindent}{5.4em}{\hspace{3em}\circled{\arabic{cntweiti}}#1} %  ①  ②  ③ 	 ……
 }
 
 \newcommand{\xhx}[1][6em] {\underline{\hspace{#1}} } % 下划线
